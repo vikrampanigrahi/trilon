@@ -1,0 +1,1 @@
+purge: ["./src/**/*.svelte", "./src/**/*.html"]
