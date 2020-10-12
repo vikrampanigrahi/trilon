@@ -5,6 +5,7 @@ import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
 import sveltePreprocess from 'svelte-preprocess';
 import typescript from '@rollup/plugin-typescript';
+import copy from 'rollup-plugin-copy';
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -48,6 +49,12 @@ export default {
 			},
 			preprocess: sveltePreprocess(),
 		}),
+		copy({
+            targets: [{ 
+                src: 'node_modules/bootstrap/dist/**/*', 
+                dest: 'public/vendor/bootstrap' 
+            }]
+        }),
 
 		// If you have external dependencies installed from
 		// npm, you'll most likely need these plugins. In
